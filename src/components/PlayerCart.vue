@@ -28,13 +28,13 @@ const animation = ( time ) => {
 
 	kartangle = kartangle - direction/20;
   	kartspeed = kartspeed + acceleration/10;
-  	kartx = kartx + kartspedd*Math.cos(kartangle);
-  	karty = karty + kartspedd*Math.sin(kartangle);
-  	kartspedd = kartspeed*0.99;
+  	kartx = kartx + kartspeed*Math.cos(kartangle);
+  	karty = karty + kartspeed*Math.sin(kartangle);
+  	kartspeed = kartspeed*0.99;
   						
-  	position.x += acceleration/10
-  	position.y += acceleration/10
-  	rotation.z -= direction/20
+  	position.x = kartx
+  	position.y = karty
+  	rotation.z = kartangle
   	
   	requestAnimationFrame(animation)
 }
