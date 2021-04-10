@@ -10,18 +10,35 @@ import usePlayerCart from '../uses/usePlayerCart.js'
 
 import Cart from './Cart.vue'
 
+
 let acceleration = 0
 let direction = 0
+let kartx = 0
+let karty = 0
+let kartz = 0
+let kartspeed = 0
+let kartangle = 0
 
 const position = usePlayerCart.position.value
 const rotation = usePlayerCart.rotation.value
 
+
+
 const animation = ( time ) => {
-  position.x += acceleration/10
-  position.y += acceleration/10
-  rotation.z -= direction/20
-  requestAnimationFrame(animation)
+
+	kartangle = kartangle - direction/20;
+  	kartspeed = kartspeed + acceleration/10;
+  	kartx = kartx + kartspedd*Math.cos(kartangle);
+  	karty = karty + kartspedd*Math.sin(kartangle);
+  	kartspedd = kartspeed*0.99;
+  						
+  	position.x += acceleration/10
+  	position.y += acceleration/10
+  	rotation.z -= direction/20
+  	
+  	requestAnimationFrame(animation)
 }
+
 
 const keydown = () => {
   if ([32, 37, 38, 39, 40, 81, 90, 68].indexOf(event.keyCode) > -1) {
