@@ -11,7 +11,7 @@ const props = defineProps({
   rotation: Object
 })
 
-const geometry = new THREE.BoxGeometry( 1.5, 3, 1 )
+const geometry = new THREE.BoxGeometry(3, 1.5, 1 )
 const material = new THREE.MeshNormalMaterial()
 
 const mesh = new THREE.Mesh( geometry, material )

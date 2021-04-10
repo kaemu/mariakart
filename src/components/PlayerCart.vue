@@ -26,11 +26,11 @@ const rotation = usePlayerCart.rotation.value
 
 const animation = ( time ) => {
 
-	kartangle = kartangle - direction/20;
-  	kartspeed = kartspeed + acceleration/10;
+	kartangle = kartangle + direction/20;
+  	kartspeed = kartspeed + acceleration/50;
   	kartx = kartx + kartspeed*Math.cos(kartangle);
   	karty = karty + kartspeed*Math.sin(kartangle);
-  	kartspeed = kartspeed*0.99;
+  	kartspeed = kartspeed*0.98;
   						
   	position.x = kartx
   	position.y = karty

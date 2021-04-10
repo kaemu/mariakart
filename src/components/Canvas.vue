@@ -19,6 +19,7 @@ let renderer
 
 const animation = ( time ) => {
 	renderer.render( useScene.scene, useCamera.camera )
+	requestAnimationFrame(animation)
 }
 
 const resize = () => {
@@ -35,7 +36,8 @@ onMounted(() => {
   renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1)
   resize()
   window.addEventListener('resize', resize)
-  renderer.setAnimationLoop( animation )
+  requestAnimationFrame(animation)
+  //renderer.setAnimationLoop( animation )
 })
 
 </script>
