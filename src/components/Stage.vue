@@ -1,6 +1,6 @@
 <template>
-  <BouncingCube />
-  <PlayerCart />
+	<BouncingCube />
+	<PlayerCart />
 </template>
 
 <script setup>

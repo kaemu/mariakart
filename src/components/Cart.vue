@@ -13,7 +13,6 @@ const props = defineProps({
 
 const geometry = new THREE.BoxGeometry(3, 1.5, 1 )
 const material = new THREE.MeshNormalMaterial()
-
 const mesh = new THREE.Mesh( geometry, material )
 useScene.scene.add( mesh )
 

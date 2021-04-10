@@ -19,8 +19,8 @@ mesh.position.z = 0
 const animation = ( time ) => {
 	mesh.rotation.x = time / 2000
 	mesh.rotation.y = time / 1000
-  mesh.position.z = Math.cos(time / 100)
-  requestAnimationFrame(animation)
+  	mesh.position.z = Math.cos(time / 100)
+  	requestAnimationFrame(animation)
 }
 
 onMounted(() => {
