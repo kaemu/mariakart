@@ -1,5 +1,8 @@
 <template>
-  <Cart :position="position" :rotation="rotation" />
+  <Kart 
+    :position="position" 
+    :rotation="rotation"
+  />
 </template>
 
 <script setup>
@@ -8,8 +11,7 @@ import * as THREE from 'three'
 
 import usePlayerCart from '../uses/usePlayerCart.js'
 
-import Cart from './Cart.vue'
-
+import Kart from './Kart.vue'
 
 let acceleration = 0
 let direction = 0
@@ -21,8 +23,6 @@ let kartangle = 0
 
 const position = usePlayerCart.position.value
 const rotation = usePlayerCart.rotation.value
-
-
 
 const animation = ( time ) => {
 
@@ -38,7 +38,6 @@ const animation = ( time ) => {
   	
   	requestAnimationFrame(animation)
 }
-
 
 const keydown = () => {
   if ([32, 37, 38, 39, 40, 81, 90, 68].indexOf(event.keyCode) > -1) {
