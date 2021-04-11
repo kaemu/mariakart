@@ -34,6 +34,7 @@ onMounted(() => {
     antialias: true,
   })
   renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1)
+  //renderer.setPixelRatio(1)
   resize()
   window.addEventListener('resize', resize)
   requestAnimationFrame(animation)
