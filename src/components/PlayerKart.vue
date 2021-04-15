@@ -39,7 +39,7 @@ const animation = ( time ) => {
   	requestAnimationFrame(animation)
 }
 
-const keydown = () => {
+const keydown = (event) => {
   if ([32, 37, 38, 39, 40, 81, 90, 68].indexOf(event.keyCode) > -1) {
     event.preventDefault()
   }
@@ -54,7 +54,7 @@ const keydown = () => {
   }
 }
 
-const keyup = () => {
+const keyup = (event) => {
   if (event.keyCode === 38 ||event.keyCode === 90) { // UP
     acceleration = 0
   } else if(event.keyCode === 40 ||event.keyCode === 83) { // UP

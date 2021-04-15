@@ -2,7 +2,7 @@
 	<BouncingCube />
 	<PlayerKart />
 	<Kart
-		v-for="player in players" 
+		v-for="player in otherPlayers" 
 		:key="player.id"
 		:position="player.position"
 		:rotation="player.rotation"
@@ -19,5 +19,6 @@ import Kart from './Kart.vue'
 import UseGame from '../uses/useGame.js'
 
 const players = computed(() => UseGame.players.value)
+const otherPlayers = computed(() => UseGame.otherPlayers.value)
 
 </script>

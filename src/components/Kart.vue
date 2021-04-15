@@ -28,6 +28,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  useScene.scene.remove( mesh )
 })
 
 </script>

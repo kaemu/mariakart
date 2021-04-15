@@ -18,7 +18,7 @@ const connect = () => {
   socket.addEventListener('close', () => {
     console.log('SOCKET CLOSE')
   })
-
+  
   socket.addEventListener('open', (event) => {  
     console.log('SOCKET OPEN')
     setInterval(() => {
@@ -41,11 +41,23 @@ const connect = () => {
 
   socket.addEventListener('message', (event) => {
     const data = JSON.parse(event.data)
-    // console.log(data);
+    
+    console.log('message', data.type)
 
     if (data.type === "playernew") {
       console.log('NEW PLAYER', data.player)
       useGame.addPlayer(data.player)
+    }
+    if (data.type === "players") {
+      console.log('NEW PLAYERS', data.players)
+      data.players.forEach(player => useGame.addPlayer(player))
+    }
+    if (data.type === "playerme") {
+      console.log('NEW PLAYER', data.player)
+      useGame.addPlayer({
+        me: true,
+        ...data.player
+      })
     }
     if (data.type === "playerleft") {
       console.log('PLAYER LEFT', data.player)

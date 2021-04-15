@@ -1,10 +1,13 @@
 <template>
   <Canvas />
+  <Score />
 </template>
 
 <script setup>
 
 import Canvas from './components/Canvas.vue'
+import Score from './components/Score.vue'
+
 import useSocket from './uses/useSocket.js'
 
 useSocket.connect()
@@ -13,8 +16,6 @@ useSocket.connect()
 
 <style>
 body, #app {
-  margin:0;
-  padding:0;
   position:relative;
 }
 </style>

@@ -1,4 +1,4 @@
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, computed } from 'vue'
 
 import usePlayerCart from './usePlayerCart.js'
 
@@ -22,6 +22,7 @@ const addPlayer = (player) => {
     },
     ...player
   }
+  console.log('add player', player)
   state.players.push(player)
 }
 
@@ -32,8 +33,13 @@ const removePlayer = ({ id }) => {
   }
 }
 
+const me = computed(() => state.players.find(player => player.me))
+const otherPlayers = computed(() => state.players.filter(player => !player.me))
+
 export default {
   ...toRefs(state),
+  me,
+  otherPlayers,
   addPlayer,
   removePlayer,
   playerWithId
