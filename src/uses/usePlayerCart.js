@@ -1,20 +1,24 @@
 import { reactive, toRefs, watchEffect, watch } from 'vue'
 
-const state = reactive({
-  id: '',
-  pseudo: 'No Name',
-  position: { 
-    x: 0, 
-    y: 0, 
-    z: 0
-  },
-  rotation: {
-    x: 0,
-    y: 0,
-    z: 0
-  }
-})
+export default (player) => {
 
-export default {
-  ...toRefs(state)
+  const state = reactive({
+    id: player.id,
+    pseudo: 'No Name',
+    position: { 
+      x: player.position.x, 
+      y: player.position.y, 
+      z: player.position.z
+    },
+    rotation: {
+      x: player.rotation.x,
+      y: player.rotation.y,
+      z: player.rotation.z
+    }
+  })
+  
+  return {
+    ...toRefs(state)
+  }
+  
 }

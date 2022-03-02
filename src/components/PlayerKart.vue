@@ -9,7 +9,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import * as THREE from 'three'
 
-import usePlayerCart from '../uses/usePlayerCart.js'
+import useGame from '../uses/useGame.js'
 
 import Kart from './Kart.vue'
 
@@ -21,8 +21,8 @@ let kartz = 0
 let kartspeed = 0
 let kartangle = 0
 
-const position = usePlayerCart.position.value
-const rotation = usePlayerCart.rotation.value
+const position = useGame.me.position.value
+const rotation = useGame.me.rotation.value
 
 const animation = ( time ) => {
 

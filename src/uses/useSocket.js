@@ -1,7 +1,6 @@
 import { reactive, toRefs } from 'vue'
 
 import useGame from './useGame.js'
-import usePlayerCart from './usePlayerCart.js'
 
 const connect = () => {
   // const socket = new WebSocket('wss://bind.bunex-industries.com/kart/play')
@@ -23,16 +22,16 @@ const connect = () => {
     console.log('SOCKET OPEN')
     setInterval(() => {
         const value = {
-          id: usePlayerCart.id.value,
+          id: useGame.me.id.value,
           position: {
-            x: usePlayerCart.position.value.x,
-            y: usePlayerCart.position.value.y,
+            x: useGame.me.position.value.x,
+            y: useGame.me.position.value.y,
             z: 0
           },
           rotation: {
             x: 0,
             y: 0,
-            z: usePlayerCart.rotation.value.z
+            z: useGame.me.rotation.value.z
           }
         }
         send("positionDidChange", value)
@@ -68,10 +67,10 @@ const connect = () => {
         //console.log(position)
         const player = useGame.playerWithId(position.id)
         if (player) {
-          player.prev_position = { ...player.position }
-          player.prev_rotation = { ...player.rotation }
-          player.position = position.position
-          player.rotation = position.rotation
+          player.value.prev_position = { ...player.value.position }
+          player.value.prev_rotation = { ...player.value.rotation }
+          player.value.position = position.position
+          player.value.rotation = position.rotation
         }
       })
     }

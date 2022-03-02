@@ -6,7 +6,7 @@ const state = reactive({
   players: []
 })
 
-const playerWithId = (id) => state.players.find(player => player.id === id)
+const playerWithId = (id) => state.players.find(player => player.value.id === id)
 
 const addPlayer = (player) => {
   player = {
@@ -23,18 +23,18 @@ const addPlayer = (player) => {
     ...player
   }
   console.log('add player', player)
-  state.players.push(player)
+  state.players.push(usePlayerCart(player))
 }
 
 const removePlayer = ({ id }) => {
-  const playerIndex = state.players.findIndex(player => player.id === id)
+  const playerIndex = state.players.findIndex(player => player.id.value === id)
   if (playerIndex >= 0) {
     state.players.splice(playerIndex, 1)
   }
 }
 
-const me = computed(() => state.players.find(player => player.me))
-const otherPlayers = computed(() => state.players.filter(player => !player.me))
+const me = computed(() => state.players.find(player => player.me.value))
+const otherPlayers = computed(() => state.players.filter(player => !player.me.value))
 
 export default {
   ...toRefs(state),
